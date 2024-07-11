@@ -18,13 +18,13 @@ class _MyHomePageState extends State<MyHomePage> {
   var cryptoMD5 = '';
   @override
   void initState() {
-    // TODO: implement initState
+
     super.initState();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
+
     super.dispose();
   }
 
@@ -56,12 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     border: InputBorder.none,
                     labelText: 'Texto',
                     hintText: 'Texto'),
-              ),
-            ),
-            const SizedBox(height: 10),
-            FilledButton.icon(
-                onPressed: () {
-                  setState(() {
+                    onChanged: (value) {
+                          setState(() {
                     cryptoSha1 = sha1
                         .convert(utf8.encode(textController.text))
                         .toString();
@@ -72,12 +68,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
                        
                   });
-                },
-                icon: const Icon(Icons.lock),
-                label: const Text('Submit'),
-                style: ButtonStyle(
-                    padding: MaterialStateProperty.resolveWith((states) =>
-                        const EdgeInsets.symmetric(horizontal: 150)))),
+                    },
+              ),
+            ),
+            // const SizedBox(height: 10),
+            // FilledButton.icon(
+            //     onPressed: () {
+            //       setState(() {
+            //         cryptoSha1 = sha1
+            //             .convert(utf8.encode(textController.text))
+            //             .toString();
+
+            //         cryptoMD5 = md5
+            //             .convert(utf8.encode(textController.text))
+            //             .toString();
+
+                       
+            //       });
+            //     },
+            //     icon: const Icon(Icons.lock),
+            //     label: const Text('Submit'),
+            //     style: ButtonStyle(
+            //         padding: MaterialStateProperty.resolveWith((states) =>
+            //             const EdgeInsets.symmetric(horizontal: 150)))),
             const SizedBox(height: 10),
             Text('💥 Original: ${textController.text}'),
             const SizedBox(height: 10),
